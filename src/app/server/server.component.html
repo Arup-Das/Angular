@@ -1,19 +1,2 @@
-<label>Server name</label>
-<!--<input type="text" class="form-control" name="" id="" (input)="onUpdateServerName($event)" > -->
-<input type="text" class="form-control" name="" id="" [(ngModel)]="serverName" >
-<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
-<p> Server {{ serverId }} is {{ serverStatus }} </p>
-<p> Allow server {{ allowNewServer }}</p>
-<p> {{ serverCreationStatus }}</p>
-<p *ngIf="serverCreated; else noServer "> Server is created, server name {{ serverName }}</p>
-<ng-template #noServer>
-    <p> No server is created.</p>
-</ng-template>
-
-<!-- <p> {{ serverName }}</p> -->
-<br>
-<hr>
-<label>User</label>
-<input type="text" class="form-control" name="" id="" [(ngModel)]="userName" >
-<p>{{userName}}</p>
-<button class="btn btn-primary" [disabled]="userName === ''" (click)="onResetUser()">Reset User</button>
+<p [ngStyle]="{backgroundColor: getColor()}"
+ [ngClass]="{online: serverStatus === 'online'}"> Server {{ serverId }} is {{ serverStatus }} </p>
